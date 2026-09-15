@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PokéStation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./src/css/main-menu.css">
+</head>
+
+<body>
+
+    <main id="inicio">
+
+        <h1>PokéStation</h1>
+      
+        <img
+            class="gif-pokebola"
+            src="./assets/pokemon-menu.gif"
+            alt="Pokébola animada"
+        >
+
+        <nav aria-label="Menu principal">
+
+        
+
+<div id="loading" class="loading" aria-hidden="true">
+    <div class="spinner"></div>
+    <p>Carregando...</p>
+</div>
+
+
+
+<button id="pokedex-finder" type="button">
+    Pokédex Finder
+</button>
+
+            <button id="team-builder" type="button">
+                Team Builder
+            </button>
+
+              <button id="girar" type="button">
+                Girar Pokémon
+            </button>
+
+            <button id="colecao" type="button">
+                Coleção
+            </button>
+
+        </nav>
+
+    </main>
+
+</body>
+<script>
+    document
+        .getElementById("pokedex-finder")
+        .addEventListener("click", () => {
+            document.getElementById("loading").classList.add("ativo");
+
+            setTimeout(() => {
+                window.location.href = "src/pages/pokemon-finder.html";
+            }, 700);
+        });
+
+        document
+        .getElementById("team-builder")
+        .addEventListener("click", () => {
+            document.getElementById("loading").classList.add("ativo");
+
+            setTimeout(() => {
+                window.location.href = "src/pages/team-builder.html";
+            }, 700);
+        });
+        document
+        .getElementById("girar")
+        .addEventListener("click", () => {
+            document.getElementById("loading").classList.add("ativo");
+
+            setTimeout(() => {
+                window.location.href = "src/pages/collector.html";
+            }, 700);
+        });
+
+        document
+        .getElementById("colecao")
+        .addEventListener("click", () => {
+            document.getElementById("loading").classList.add("ativo");
+
+            setTimeout(() => {
+                window.location.href = "src/pages/collection.html";
+            }, 700);
+        });
+</script>
+
+</html>

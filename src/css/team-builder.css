@@ -1,0 +1,399 @@
+:root {
+    --vermelho: #e50035;
+    --vermelho-escuro: #bd002e;
+    --preto: #101010;
+    --amarelo: #ffd000;
+    --verde-card: #98c600;
+    --cinza: #c7c7c7;
+    --branco: #f8f8f8;
+    --rosa: #ff4e73;
+}
+
+* { box-sizing: border-box; }
+html { background: #090909; }
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 17px 28px 28px;
+    color: var(--branco);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    background: var(--vermelho);
+    border: 12px solid #101010;
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; transition: all .15s ease; }
+button:hover { background: #9bbc0f; color: #0f380f; border-color: #0f380f; }
+button:active { box-shadow: 0 0 0 #101010; transform: translate(3px, 3px); }
+button:focus { outline-offset: 4px; }
+#back-menu:hover, #buscar:hover, #salvar-equipe:hover {
+    background: #9bbc0f;
+    color: #0f380f;
+    border-color: #0f380f;
+}
+#back-menu:active, #buscar:active, #salvar-equipe:active {
+    box-shadow: 0 0 0 #101010;
+    transform: translate(3px, 3px);
+}
+
+#cabecalho-equipe { max-width: 1110px; margin: 0 auto; }
+
+.cabecalho-topo {
+    display: grid;
+    grid-template-columns: 292px 45px max-content;
+    align-items: center;
+    gap: 25px;
+}
+
+h1 {
+    margin: 0;
+    color: var(--amarelo);
+    font-size: clamp(1.45rem, 3vw, 2.1rem);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-shadow: 3px 3px 0 #287bdb, 6px 6px 0 #ff4a28;
+}
+
+.gif-pokebola {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 50%;
+}
+
+#back-menu {
+    min-width: 162px;
+    padding: 9px 13px;
+    color: #111;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: left;
+    background: var(--cinza);
+    border: 3px solid #111;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, .55);
+}
+#back-menu::before { content: '< '; }
+#info { margin: 16px 0 20px; font-size: .64rem; line-height: 1.6; }
+
+.container {
+    display: grid;
+    grid-template-columns: 342px minmax(0, 1fr);
+    gap: 18px;
+    max-width: 1110px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.coluna-esquerda {
+    min-height: 296px;
+    padding: 14px 12px;
+    background: var(--vermelho-escuro);
+    border: 4px solid var(--preto);
+}
+.coluna-direita { display: grid; gap: 13px; }
+.painel-busca { padding: 1px 0 0; }
+
+.painel-busca label {
+    display: block;
+    margin: 0 0 9px;
+    font-size: .64rem;
+}
+
+#pokemon {
+    display: block;
+    width: 100%;
+    min-height: 40px;
+    padding: 9px 12px;
+    color: #202020;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+    outline: none;
+    background: #fff;
+    border: 3px solid #0d0d0d;
+    border-radius: 0;
+    transition: all .2s ease;
+}
+#pokemon:focus {
+    border-color: #2a75bb;
+    background: #f0f4f8;
+    outline: none;
+    transform: scale(1.02);
+}
+
+#buscar, #salvar-equipe {
+    width: 100%;
+    padding: 11px 8px;
+    color: #0c0c0c;
+    font-size: .73rem;
+    font-weight: bold;
+    background: var(--amarelo);
+    border: 3px solid #101010;
+    border-radius: 0;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, .45);
+}
+#buscar { margin-top: 14px; }
+
+.painel-busca hr {
+    height: 2px;
+    margin: 23px 0 18px;
+    background: #fff;
+    border: 0;
+}
+
+#mensagem-erro, #info-equipe {
+    min-height: 1.6em;
+    margin: 8px 0 0;
+    font-size: .57rem;
+    line-height: 1.55;
+}
+#mensagem-erro { color: #ffe1e6; }
+#info-equipe { color: var(--amarelo); }
+
+#equipes-salvas { margin-top: 17px; }
+#equipes-salvas:empty::before {
+    display: block;
+    color: var(--amarelo);
+    font-size: .68rem;
+    content: 'MEUS TIMES SALVOS:';
+}
+#equipes-salvas > * {
+    display: block;
+    margin: 13px 0 0;
+    padding: 10px 8px;
+    color: var(--amarelo);
+    background: var(--preto);
+    border: 2px solid #fff;
+}
+#equipes-salvas h2, #equipes-salvas h3, #equipes-salvas strong {
+    display: block;
+    margin: 0 0 8px;
+    color: var(--amarelo);
+    font-size: .68rem;
+}
+#equipes-salvas p {
+    margin: 0;
+    color: #bbb;
+    font-family: 'Courier New', monospace;
+    font-size: .72rem;
+    font-weight: bold;
+}
+
+.painel-equipe {
+    padding: 11px;
+    background: var(--preto);
+    border: 4px solid #111;
+}
+#equipe-cabecalho {
+    padding: 8px 12px;
+    color: var(--amarelo);
+    background: #171717;
+    border: 2px solid #fff;
+}
+#contador-equipe {
+    min-height: 18px;
+    margin: 0;
+    font-size: .72rem;
+    line-height: 1.45;
+}
+#contador-equipe:empty::before { content: 'SUA EQUIPE ATUAL (0 / 6 POKÉMONS)'; }
+
+#equipe {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 14px;
+    margin-top: 14px;
+}
+#equipe:empty::before {
+    grid-column: 1 / -1;
+    min-height: 268px;
+    padding: 60px 20px;
+    color: var(--amarelo);
+    font-size: .76rem;
+    text-align: center;
+    content: 'BUSQUE UM POKÉMON PARA MONTAR SUA EQUIPE';
+    background: #151515;
+    border: 2px dashed var(--verde-card);
+}
+
+#equipe > div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-rows: auto;
+    column-gap: 10px;
+    min-height: 136px;
+    min-height: 190px;
+    padding: 8px;
+    color: #111;
+    background: var(--verde-card);
+    border: 3px solid #0c0c0c;
+    box-shadow: inset 0 0 0 1px #648100;
+}
+#equipe img {
+    grid-row: 1 / span 2;
+    grid-row: 1 / span 8;
+    width: 76px;
+    height: 76px;
+    padding: 3px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: #a9d900;
+    border: 2px solid #080808;
+}
+#equipe h3 {
+    margin: 2px 24px 8px 0;
+    overflow-wrap: anywhere;
+    font-size: .68rem;
+    line-height: 1.45;
+    text-transform: uppercase;
+}
+#equipe > div > p {
+    grid-column: 2;
+    margin: 3px 0;
+    margin: 1px 0;
+    font-family: 'Courier New', monospace;
+    font-size: .76rem;
+    font-size: .68rem;
+    font-weight: bold;
+    line-height: 1.15;
+    line-height: 1.2;
+}
+#equipe > div > p:nth-of-type(n + 2):nth-of-type(-n + 6) { display: none; }
+#equipe > div > p:nth-of-type(7) {
+    grid-column: 1 / -1;
+    align-self: end;
+    margin-top: 6px;
+    margin-top: 8px;
+    padding-top: 5px;
+    font-size: .67rem;
+    border-top: 1px solid rgba(0, 0, 0, .4);
+}
+
+#equipe > div > p:nth-of-type(n) {
+    display: block !important;
+    visibility: visible;
+    opacity: 1;
+}
+#equipe > div button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 22px;
+    padding: 1px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: .82rem;
+    font-weight: bold;
+    line-height: 1;
+    background: var(--rosa);
+    border: 2px solid #111;
+    border-radius: 0;
+}
+#equipe > div button:hover {
+    color: #111;
+    background: #fff;
+    border-color: #fff;
+}
+#salvar-equipe { margin-top: 8px; }
+#salvar-equipe::before { content: '▣ '; }
+
+.painel-status {
+    padding: 13px 16px 16px;
+    background: var(--preto);
+    border: 4px solid #fff;
+}
+#status-equipe, #nivel-equipe { display: grid; gap: 12px 28px; }
+#status-equipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#status-equipe::before {
+    grid-column: 1 / -1;
+    margin-bottom: 1px;
+    color: var(--amarelo);
+    font-size: .72rem;
+    content: 'STATUS E NÍVEL DE PODER DA EQUIPE';
+}
+#status-equipe p {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 9px;
+    margin: 0;
+    color: #fff;
+    font-size: .53rem;
+    line-height: 1.7;
+}
+#status-equipe strong { grid-column: 1 / -1; font-weight: normal; }
+#status-equipe span { grid-column: 2; color: var(--amarelo); font-size: .56rem; }
+#status-equipe p::after {
+    grid-column: 1;
+    grid-row: 2;
+    height: 14px;
+    content: '';
+    background: linear-gradient(90deg, #2b91e8 0 74%, #383838 74% 100%);
+    border: 1px solid #555;
+}
+#status-equipe p:nth-of-type(1)::after { background: linear-gradient(90deg, #ff4e73 0 84%, #383838 84%); }
+#status-equipe p:nth-of-type(2)::after { background: linear-gradient(90deg, #f9a900 0 78%, #383838 78%); }
+#status-equipe p:nth-of-type(3)::after { background: linear-gradient(90deg, #f6d76d 0 70%, #383838 70%); }
+#status-equipe p:nth-of-type(5)::after { background: linear-gradient(90deg, #75a9ff 0 82%, #383838 82%); }
+#status-equipe p:nth-of-type(6)::after { background: linear-gradient(90deg, #44d477 0 72%, #383838 72%); }
+
+#nivel-equipe { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
+#nivel-equipe::before {
+    grid-column: 1 / -1;
+    display: block;
+    height: 2px;
+    content: '';
+    background: #555;
+}
+#nivel-equipe p {
+    margin: 0;
+    padding: 7px 9px;
+    font-size: .53rem;
+    line-height: 1.5;
+    background: #222;
+    border-left: 5px solid #777;
+}
+#nivel-equipe p:last-child {
+    grid-column: 1 / -1;
+    min-height: 58px;
+    padding: 10px 12px;
+    color: var(--amarelo);
+    font-size: .7rem;
+    background: #327fbd;
+    border: 3px solid var(--amarelo);
+}
+.fraco { color: #ff9aaa; border-left-color: #ff4e73 !important; }
+.mediano { color: #ffe379; border-left-color: #f9a900 !important; }
+.forte { color: #8effb5; border-left-color: #44d477 !important; }
+
+@media (max-width: 930px) {
+    body { padding: 17px; }
+    .container { grid-template-columns: 285px minmax(0, 1fr); }
+    #equipe > div { grid-template-columns: 60px 1fr; }
+    #equipe img { width: 60px; height: 60px; }
+}
+
+@media (max-width: 730px) {
+    body { padding: 14px; border-width: 8px; }
+    .cabecalho-topo { grid-template-columns: 1fr auto; gap: 14px; }
+    #back-menu { grid-column: 1 / -1; }
+    .container { grid-template-columns: 1fr; }
+    .coluna-esquerda { min-height: auto; }
+    #equipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; font-size: 10px; }
+    .painel-equipe, .painel-status { padding: 9px; }
+    #equipe, #status-equipe { grid-template-columns: 1fr; }
+    #status-equipe::before { grid-column: auto; }
+    #nivel-equipe { grid-template-columns: 1fr; }
+}

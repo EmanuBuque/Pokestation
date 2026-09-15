@@ -1,0 +1,247 @@
+:root {
+    --fundo: #0d0d16;
+    --painel: #1e1d30;
+    --painel-2: #292741;
+    --vermelho: #e32d52;
+    --amarelo: #ffd34d;
+    --ciano: #6ae5f8;
+    --texto: #f8f7f1;
+    --texto-suave: #c2bed3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: #08080d;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 34px 20px 48px;
+    color: var(--texto);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(106, 229, 248, .17) 0 2px, transparent 3px),
+        radial-gradient(circle at 91% 19%, rgba(255, 211, 77, .18) 0 2px, transparent 3px),
+        linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px) 0 0 / 23px 23px,
+        linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px) 0 0 / 23px 23px,
+        var(--fundo);
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+    transition: transform .16s ease, filter .16s ease;
+}
+
+button:hover {
+    filter: brightness(1.13);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+main {
+    width: min(1060px, 100%);
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    padding: 21px 22px;
+    color: var(--amarelo);
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    line-height: 1.25;
+    text-align: center;
+    text-shadow: 3px 3px 0 #a4203d, 6px 6px 0 #22213d;
+    background: linear-gradient(100deg, #bc1e43, var(--vermelho), #bc1e43);
+    border: 3px solid #ff7993;
+    box-shadow: 7px 7px 0 #07070d, 0 0 25px rgba(227, 45, 82, .32);
+}
+
+main > button {
+    display: block;
+    margin: 20px 0 0 auto;
+    padding: 11px 15px;
+    color: #171521;
+    font-size: .61rem;
+    font-weight: bold;
+    background: #eee8da;
+    border: 3px solid #15131d;
+    box-shadow: 3px 3px 0 #75172e;
+}
+
+main > button::before {
+    content: '← ';
+}
+
+#contador {
+    margin: 22px 0 14px;
+    padding: 14px 18px;
+    color: var(--ciano);
+    font-size: .75rem;
+    text-align: center;
+    background: var(--painel);
+    border: 3px solid #504d7c;
+    box-shadow: 5px 5px 0 #07070d;
+}
+
+#card-colecao {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+    min-height: 240px;
+    padding: 21px;
+    background: rgba(30, 29, 48, .88);
+    border: 3px solid #504d7c;
+    box-shadow: 7px 7px 0 #07070d, inset 0 0 0 2px rgba(106, 229, 248, .05);
+}
+
+#card-colecao:empty::before {
+    display: grid;
+    grid-column: 1 / -1;
+    place-items: center;
+    min-height: 185px;
+    padding: 25px;
+    color: var(--texto-suave);
+    font-size: .66rem;
+    line-height: 1.9;
+    text-align: center;
+    content: 'SUA COLEÇÃO AINDA ESTÁ VAZIA';
+    white-space: pre;
+    background: #151421;
+    border: 2px dashed #55527a;
+}
+
+#card-colecao > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 190px;
+    padding: 19px 15px 14px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #343252, #212035 64%);
+    border: 2px solid #68648f;
+    box-shadow: 4px 4px 0 #0a0911;
+}
+
+#card-colecao img {
+    align-self: center;
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 8px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+#card-colecao p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+#card-colecao p:first-of-type {
+    min-height: 58px;
+    padding: 42px 0 10px;
+    color: var(--amarelo);
+    font-size: .71rem;
+    line-height: 1.65;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 255, 255, .17);
+}
+
+#card-colecao .raridade {
+    min-height: 54px;
+    padding-top: 12px;
+    color: var(--ciano);
+    font-size: .56rem;
+    line-height: 1.7;
+}
+
+#card-colecao .raridade.mythical {
+    color: transparent;
+    background: linear-gradient(90deg, #ff4d4d, #ff9f43, #ffe66d, #55d66b, #4dc9ff, #8b5cf6, #ff4dca, #ff4d4d);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: brilho-arco-iris 3s linear infinite;
+}
+
+#card-colecao .raridade.legendary {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, .65);
+}
+
+#card-colecao .raridade.epic {
+    color: #dda5ff;
+}
+
+#card-colecao .raridade.rare {
+    color: #8deeff;
+}
+
+#card-colecao .raridade.incomum {
+    color: #a5f5b5;
+}
+
+#card-colecao .raridade.comum {
+    color: #e0deeb;
+}
+
+@keyframes brilho-arco-iris {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+#card-colecao > div button {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-top: auto;
+    padding: 9px 6px;
+    color: #fff;
+    font-size: .54rem;
+    font-weight: bold;
+    background: #ba2142;
+    border: 2px solid #ff7791;
+    box-shadow: 3px 3px 0 #68152a;
+}
+
+#card-colecao > div button::before {
+    content: '× ';
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 20px 12px 30px;
+    }
+
+    h1 {
+        padding: 18px 13px;
+    }
+
+    main > button {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    #card-colecao {
+        grid-template-columns: 1fr;
+        padding: 14px;
+    }
+}

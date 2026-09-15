@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buscador de Pokémon - Team Builder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/team-builder.css">
+</head>
+
+<body>
+
+    <header id="cabecalho-equipe">
+        <div class="cabecalho-topo">
+            <h1>Team Builder</h1>
+
+            <img
+                class="gif-pokebola"
+                src="../../assets/pokeball-animation.gif"
+                alt="Pokébola animada"
+            >
+
+            <button id="back-menu" type="button" onclick="window.location.href='../../index.html'">
+                Voltar ao Menu
+            </button>
+        </div>
+
+        <p id="info">Escolha seis Pokémons, monte uma equipe e veja seu nivel de poder e status!</p>
+    </header>
+
+    <main class="container">
+
+        <aside class="coluna-esquerda">
+            
+            <div class="painel-busca">
+                <label for="pokemon">Digite o nome do Pokémon:</label>
+
+                <input
+                    type="text"
+                    id="pokemon"
+                    placeholder="Ex: pikachu"
+                >
+
+                <button id="buscar" type="button">
+                    Buscar Pokémon
+                </button>
+
+                <hr>
+
+                <p id="mensagem-erro"></p>
+                <p id="info-equipe"></p>
+            </div>
+
+
+        </aside>
+
+        <section class="coluna-direita">
+            
+            <div class="painel-equipe">
+                <div id="equipe-cabecalho">
+                    <p id="contador-equipe"></p>
+                </div>
+
+                <div id="equipe"></div>
+
+            </div>
+
+            <div class="painel-status">
+                <div id="status-equipe"></div>
+
+                <div id="nivel-equipe">
+                    <p id="status-vida"></p>
+                    <p id="status-ataque"></p>
+                    <p id="status-defesa"></p>
+                    <p id="status-ataque-especial"></p>
+                    <p id="status-defesa-especial"></p>
+                    <p id="status-velocidade"></p>
+                    <p id="status-poder-total"></p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../js/team-builder.js"></script>
+
+</body>
+
+</html>

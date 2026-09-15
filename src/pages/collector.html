@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colecionador De Pokémon - Giro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../css/collector.css">
+</head>
+
+<body>
+
+    <header id="cabecalho">
+        <h1>Giro de Pokémons</h1>
+        <button id="back-menu" type="button" onclick="window.location.href='../../index.html'">
+            Voltar ao Menu
+        </button>
+    </header>
+
+    <main class="container">
+        <h3>Gire Pokémons aleatórios e os adicione à sua coleção!</h3>
+
+        <div class="painel-controle">
+            <p id="contador"></p>
+        </div>
+
+        <button id="buscar" type="button">Girar Pokémon</button>
+
+        <div id="card">
+            <img id="sprite" alt="Sprite do Pokémon">
+
+            <div id="resultado">
+                <p id="nome"></p>
+                <p id="raridade"></p>
+                <button id="adicionar">Adicionar à Coleção</button>
+                <p id="adicionado"></p>
+            </div>
+
+            <p id="mensagem-erro"></p>
+        </div>
+    </main>
+
+    <script src="../js/collector.js"></script>
+</body>
+
+</html>

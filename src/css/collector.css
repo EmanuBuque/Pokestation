@@ -1,0 +1,420 @@
+:root {
+    --fundo: #10101a;
+    --painel: #1c1b2d;
+    --painel-claro: #292844;
+    --vermelho: #df284d;
+    --vinho: #8f1935;
+    --dourado: #ffd64b;
+    --ciano: #68e1f7;
+    --texto: #f8f5ef;
+    --texto-suave: #bdb9cd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: #090910;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 28px 20px 42px;
+    color: var(--texto);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    background:
+        radial-gradient(circle at 10% 15%, rgba(104, 225, 247, .16) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 20%, rgba(255, 214, 75, .17) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 80%, rgba(223, 40, 77, .17) 0 2px, transparent 3px),
+        linear-gradient(135deg, rgba(255, 255, 255, .025) 25%, transparent 25%) 0 0 / 25px 25px,
+        var(--fundo);
+}
+
+button {
+    cursor: pointer;
+    font: inherit;
+    transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: min(900px, 100%);
+    margin: 0 auto 24px;
+    padding: 16px 18px;
+    background: linear-gradient(100deg, #b91d41, #ed375b 55%, #b91d41);
+    border: 3px solid #ff7891;
+    box-shadow: 6px 6px 0 #07070d, 0 0 24px rgba(223, 40, 77, .36);
+}
+
+#cabecalho h1 {
+    margin: 0;
+    color: var(--dourado);
+    font-size: clamp(1.05rem, 3vw, 1.7rem);
+    line-height: 1.3;
+    text-shadow: 3px 3px 0 #4d1730;
+}
+
+#back-menu {
+    flex: 0 0 auto;
+    padding: 10px 13px;
+    color: #151321;
+    font-size: .6rem;
+    font-weight: bold;
+    background: #e7e1d5;
+    border: 3px solid #171421;
+    box-shadow: 3px 3px 0 #74152d;
+}
+
+#back-menu::before {
+    content: '← ';
+}
+
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 185px;
+    gap: 16px;
+    width: min(900px, 100%);
+    margin: 0 auto;
+}
+
+.container > h3 {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 16px 20px;
+    color: var(--ciano);
+    font-size: .69rem;
+    line-height: 1.8;
+    text-align: center;
+    background: rgba(28, 27, 45, .9);
+    border: 2px solid #414064;
+    box-shadow: inset 0 0 0 2px rgba(104, 225, 247, .07);
+}
+
+.painel-controle {
+    display: grid;
+    place-items: center;
+    min-height: 70px;
+    padding: 11px;
+    text-align: center;
+    background: var(--painel);
+    border: 3px solid #4c4a74;
+    box-shadow: 4px 4px 0 #080810;
+}
+
+#contador {
+    margin: 0;
+    color: var(--dourado);
+    font-size: .72rem;
+    line-height: 1.6;
+}
+
+#buscar {
+    min-height: 70px;
+    padding: 12px;
+    color: #251c16;
+    font-size: .7rem;
+    font-weight: bold;
+    line-height: 1.5;
+    background: linear-gradient(135deg, #ffed8c, #ffc229);
+    border: 3px solid #fff2a7;
+    box-shadow: 4px 4px 0 #8b5318;
+}
+
+#buscar::before {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 1.1rem;
+    content: '↻';
+}
+
+#card {
+    position: relative;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 24px;
+    min-height: 310px;
+    padding: 25px;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, transparent 49.5%, rgba(104, 225, 247, .075) 50%, transparent 50.5%) 0 0 / 34px 34px,
+        var(--painel);
+    border: 3px solid #5b578a;
+    box-shadow: 8px 8px 0 #080810, 0 0 28px rgba(104, 225, 247, .09);
+}
+
+#card::before,
+#card::after {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    content: '';
+    border: 16px solid rgba(223, 40, 77, .16);
+    border-radius: 50%;
+}
+
+#card::before {
+    top: -95px;
+    right: -65px;
+}
+
+#card::after {
+    bottom: -115px;
+    left: -70px;
+}
+
+#sprite {
+    position: relative;
+    z-index: 1;
+    align-self: center;
+    justify-self: center;
+    width: min(230px, 100%);
+    height: 230px;
+    padding: 16px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: radial-gradient(circle, #4e4c70 0 33%, #292840 34% 100%);
+    border: 4px solid var(--ciano);
+    border-radius: 50%;
+    box-shadow: 0 0 0 7px #19182a, 0 0 22px rgba(104, 225, 247, .42);
+}
+
+#sprite:not([src]) {
+    visibility: hidden;
+}
+
+#card:has(#sprite:not([src]))::after {
+    position: static;
+    display: block;
+    align-self: center;
+    justify-self: center;
+    width: auto;
+    height: auto;
+    color: var(--texto-suave);
+    font-size: .47rem;
+    line-height: 1.7;
+    text-align: center;
+    content: 'O POKÉMON SORTEADO APARECERÁ AQUI';
+    white-space: pre;
+    border: 0;
+    border-radius: 0;
+}
+
+#resultado {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+}
+
+#nome,
+#raridade,
+#adicionado,
+#mensagem-erro {
+    margin: 0;
+}
+
+#nome {
+    min-height: 1.6em;
+    color: #fff;
+    font-size: clamp(.8rem, 2vw, 1.1rem);
+    line-height: 1.55;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+#raridade {
+    min-height: 2.4em;
+    padding: 9px 11px;
+    color: var(--texto-suave);
+    font-size: .62rem;
+    line-height: 1.55;
+    background: #13121f;
+    border-left: 6px solid #79768f;
+}
+
+
+#raridade.mythical {
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        #ff4d4d,
+        #ff9f43,
+        #ffe66d,
+        #55d66b,
+        #4dc9ff,
+        #8b5cf6,
+        #ff4dca,
+        #ff4d4d
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-left-color: #ff4dca;
+    box-shadow: inset 0 0 17px rgba(255, 77, 202, .2);
+    animation: brilho-arco-iris 3s linear infinite;
+}
+
+@keyframes brilho-arco-iris {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+#raridade.legendary {
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        #8f5d00,
+        #ffd700,
+        #fff3a3,
+        #ffd700,
+        #b77900,
+        #fff3a3,
+        #8f5d00
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-left-color: #ffd700;
+    box-shadow: inset 0 0 17px rgba(255, 215, 0, .28);
+    animation: brilho-dourado 2.5s linear infinite;
+}
+
+@keyframes brilho-dourado {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+#raridade.epic {
+    color: #dda5ff;
+    border-left-color: #a75cdb;
+}
+
+#raridade.rare {
+    color: #8deeff;
+    border-left-color: #37c8e3;
+}
+
+#raridade.incomum {
+    color: #a5f5b5;
+    border-left-color: #45c46a;
+}
+
+#raridade.comum {
+    color: #e0deeb;
+    border-left-color: #aaa5bd;
+}
+
+#adicionar {
+    width: 100%;
+    margin-top: 6px;
+    padding: 13px 12px;
+    color: #fff;
+    font-size: .62rem;
+    font-weight: bold;
+    line-height: 1.55;
+    background: linear-gradient(135deg, #d62c4e, #a61e3b);
+    border: 3px solid #ff7891;
+    box-shadow: 4px 4px 0 #611328;
+}
+
+#adicionar::before {
+    content: '+ ';
+}
+
+#adicionado {
+    min-height: 1.7em;
+    color: #8ff0a7;
+    font-size: .56rem;
+    line-height: 1.55;
+}
+
+#mensagem-erro {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+    min-height: 1.5em;
+    color: #ff9bac;
+    font-size: .58rem;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 18px 13px 30px;
+    }
+
+    #cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 14px;
+    }
+
+    #back-menu {
+        width: 100%;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-controle,
+    #buscar {
+        min-height: 62px;
+    }
+
+    #card {
+        grid-template-columns: 1fr;
+        gap: 19px;
+        min-height: 0;
+        padding: 22px 16px;
+    }
+
+    #sprite {
+        width: 185px;
+        height: 185px;
+    }
+
+    #resultado {
+        align-items: stretch;
+        text-align: center;
+    }
+
+    #raridade {
+        text-align: left;
+    }
+}

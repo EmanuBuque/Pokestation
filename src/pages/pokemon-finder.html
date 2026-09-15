@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Pokémon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pokedex.css">
+</head>
+
+<body>
+
+    <h1>Buscador de Pokémon</h1>
+
+    <main class="container">
+
+        <section class="col-esquerda">
+            <img class="gif-pokebola" src="../../assets/pokeball-animation.gif" alt="Pokébola animada">
+
+            <button id="back-menu" type="button" onclick="window.location.href='../../index.html'">
+                Voltar ao Menu
+            </button>
+
+            <label for="pokemon">Digite o nome do Pokémon:</label>
+            <input type="text" id="pokemon" placeholder="Ex: pikachu">
+
+            <button id="buscar" type="button">Buscar Pokémon</button>
+            <button id="limpar" type="button">Limpar</button>
+        </section>
+
+        <section class="col-direita">
+            
+            <div id="card">
+                <img id="sprite" alt="Sprite do Pokémon">
+                
+                <div id="resultado">
+                    <p id="nome"></p>
+                    <p id="altura"></p>
+                    <p id="peso"></p>
+                    <p id="experiencia"></p>
+                </div>
+                
+                <p id="mensagem-erro"></p>
+            </div>
+
+            <section id="favoritos-card">
+                <h2>Meus favoritos</h2>
+                <ul id="favoritos"></ul>
+                <p id="mensagem-favoritos"></p>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="../js/pokedex.js"></script>
+
+</body>
+
+</html>

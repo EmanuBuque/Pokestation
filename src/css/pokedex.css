@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dc0a2d;
+    font-family: 'Press Start 2P', cursive;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+}
+
+h1 {
+    color: #ffcc00;
+    text-shadow: 4px 4px 0 #2a75bb, 
+                -2px -2px 0 #2a75bb, 
+                 2px -2px 0 #2a75bb, 
+                -2px  2px 0 #2a75bb, 
+                 2px  2px 0 #2a75bb;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    max-width: 950px;
+    margin-top: 1rem;
+}
+
+.col-esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+.col-direita {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+}
+
+.gif-pokebola {
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+label {
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    text-shadow: 2px 2px 0 #000;
+}
+
+input {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    padding: 15px;
+    width: 100%;
+    border: 4px solid #222;
+    border-radius: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    outline: none;
+    box-shadow: 4px 4px 0 #222;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: #2a75bb;
+    background-color: #f0f4f8; 
+    transform: scale(1.02);
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    padding: 12px 18px;
+    background-color: #ffcc00;
+    color: #222;
+    border: 4px solid #222;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #222;
+    transition: all 0.1s;
+    margin: 5px;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 250px;
+}
+
+button:active {
+    box-shadow: 0px 0px 0px #222;
+    transform: translate(4px, 4px);
+}
+
+button:focus {
+    outline-offset: 4px;
+}
+
+#back-menu { background-color: #c0c0c0; }
+#limpar { background-color: #ff7675; }
+
+button:hover, 
+#back-menu:hover, 
+#limpar:hover, 
+.botao-favoritar:hover {
+    background-color: #9bbc0f; 
+    color: #0f380f; 
+    border-color: #0f380f;
+}
+
+.botao-remover:hover {
+    background-color: #8c0000; 
+    border-color: #fff;
+    color: #fff;
+}
+
+#card {
+    background-color: #9bbc0f;
+    border: 6px solid #222;
+    border-radius: 10px 10px 40px 10px;
+    width: 100%;
+    padding: 2rem;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 8px 8px 0px rgba(0,0,0,0.6);
+    min-height: 250px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+@media (max-width: 550px) {
+    #card {
+        flex-direction: column;
+        padding-bottom: 4rem;
+    }
+}
+
+#sprite {
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: none;
+}
+
+#sprite[src] {
+    display: block;
+}
+
+#resultado {
+    text-align: left;
+}
+
+#resultado p {
+    font-size: 0.7rem;
+    margin: 15px 0;
+    text-transform: uppercase;
+    color: #0f380f;
+    font-weight: bold;
+}
+
+#mensagem-erro {
+    position: absolute;
+    bottom: 20px;
+    color: #dc0a2d;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+.botao-favoritar {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #ff9a9e;
+    padding: 8px 12px;
+    font-size: 0.6rem;
+    border-width: 3px;
+    box-shadow: 3px 3px 0 #222;
+    margin: 0;
+    width: auto;
+}
+
+.botao-favoritar:active {
+    box-shadow: 0 0 0 #222;
+    transform: translate(3px, 3px);
+}
+
+.botao-remover {
+    background-color: #ff4757;
+    color: white;
+    border: 3px solid #fff;
+    padding: 6px 10px;
+    font-size: 0.5rem;
+    box-shadow: 2px 2px 0 #fff;
+    margin: 0;
+    width: auto;
+}
+
+.botao-remover:active {
+    box-shadow: 0 0 0 #fff;
+    transform: translate(2px, 2px);
+}
+
+#favoritos-card {
+    background-color: #111;
+    color: white;
+    border: 6px solid #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.6);
+    text-align: left;
+}
+
+#favoritos-card h2 {
+    font-size: 1rem;
+    color: #ffcc00;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 0 #222;
+}
+
+#favoritos {
+    list-style: none;
+}
+
+#favoritos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #444;
+}
+
+#favoritos li::before {
+    content: "► ";
+    color: #2a75bb;
+    margin-right: 10px;
+}
+
+#favoritos li span {
+    flex-grow: 1;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#mensagem-favoritos {
+    font-size: 0.6rem;
+    color: #888;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+.heart-float {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: scale(var(--scale)) rotate(var(--rotation)) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(var(--scale)) rotate(var(--rotation)) translateY(-150px);
+    }
+}
