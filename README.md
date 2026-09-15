@@ -1,4 +1,4 @@
-![PokéStation](https://i.pinimg.com/originals/94/69/f6/9469f63cb17b971a97b02a54c0e5a962.gif)
+
 
 # ✦ PokéStation ✦
 
