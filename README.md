@@ -1,12 +1,15 @@
 
-
-# ✦ PokéStation ✦
+## ✦ PokéStation ✦
 
 > ♡ Um pequeno projeto inspirado em uma Pokédex, feito para estudar, experimentar e se divertir com front-end.
 
 Este projeto foi feito apenas para **estudo e diversão**, com a ideia de criar algo parecido com uma Pokédex e uma estação de Pokémon usando **HTML, CSS e JavaScript**.
 
 Ele foi feito para aprender, testar ideias e se divertir enquanto praticava front-end, consumo de API e lógica de interface. Não é um projeto comercial, não tem fins lucrativos e não foi criado para uso oficial ou produção.
+
+<div align="center">
+  <img src="./assets/pokestation-preview.png" width="700" alt="Preview do PokéStation">
+</div>
 
 ---
 
