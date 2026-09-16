@@ -27,7 +27,7 @@ let pokemonAtual = null;
 
 async function buscarPokemon(){
     elementos.adicionado.textContent = '';
-    const aleatorio = Math.floor(Math.random() * 125) + 1;
+    const aleatorio = Math.floor(Math.random() * 1025) + 1;
 
     try {
         const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${aleatorio}`)
